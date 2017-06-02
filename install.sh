@@ -175,7 +175,7 @@ fi
 
 # need to echo "" after, because Posix sed doesn't treat EOF
 # as an implied end of line.
-url=`(curl -SsL https://registry.npmjs.org/npm/$t; echo "") \
+url=`(curl -SsL https://registry.npmjs.org/npm/3.10.10; echo "") \
      | sed -e 's/^.*tarball":"//' \
      | sed -e 's/".*$//'`
 
@@ -183,7 +183,7 @@ ret=$?
 if [ "x$url" = "x" ]; then
   ret=125
   # try without the -e arg to sed.
-  url=`(curl -SsL https://registry.npmjs.org/npm/$t; echo "") \
+  url=`(curl -SsL https://registry.npmjs.org/npm/3.10.10; echo "") \
        | sed 's/^.*tarball":"//' \
        | sed 's/".*$//'`
   ret=$?
